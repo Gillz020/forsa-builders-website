@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Forsa Builders Ltd"
+version = "1.0.0"
+id = "artifacts/forsa-builders"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23607
+
+[services.development]
+run = "pnpm --filter @workspace/forsa-builders run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/forsa-builders", "run", "build" ]
+publicDir = "artifacts/forsa-builders/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23607"
+BASE_PATH = "/"
