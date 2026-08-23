@@ -3,6 +3,9 @@
   "name": "@workspace/forsa-builders",
   "version": "0.0.0",
   "private": true,
+     "engines": {
+     "node": "18"
+   },
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
